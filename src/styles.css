@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+	min-height: 100%;
+	align-items: center;
+	align-content: center;
+}
+
+.login-form {
+	display: flex;
+	flex-direction: column;
+	width: 75%;
+}
+
+.mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+	background-color: #0091EA;
+}
+
+.mat-input-element {
+	caret-color: #0091EA;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.mat-icon.larger {
+	height: 58px;
+	width: 58px;
+	font-size: 58px;
+}
+
+i.ms-Icon.larger {
+	height: 55px;
+	width: 55px;
+	font-size: 55px;
+}
+
+span.small {
+	text-align: center;
+	font-size: small;
+}
+
+.div-center {
+	display: table;
+	margin: 20px auto;
+	padding-top: 20px;
+}
+
+span.spacer {
+	flex: 1 1 auto;
+}
+
+.arch-icon {
+	padding: 0 5px;
+}
+
+.icon-tooltip {
+	margin-top: -7px !important;
+}
+
+.icon-tooltip-left {
+	margin-right: 2px !important;
+}
+
+.m-r-10 {
+	margin-right: 10px; 
+}

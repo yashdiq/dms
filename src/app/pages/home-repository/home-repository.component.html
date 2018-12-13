@@ -1,0 +1,74 @@
+<div style="height: 100%; box-sizing: border-box;">
+  <mat-card style="height: 100%; box-sizing: border-box; padding:0">
+    <mat-toolbar>
+        <mat-toolbar-row>
+          <i class="file-or-folder-icon m-r-10 ms-Icon pointer ms-Icon--Back ms-fontColor-themePrimary"
+            *ngIf="!isRoot"
+            (click)="goBack()"
+          ></i>
+          
+          <span *ngIf="isRoot">Repository</span>
+          <span *ngIf="!isRoot">{{headerTitle}}</span>
+          <span class="spacer"></span>
+          <i class="file-or-folder-icon ms-Icon pointer ms-Icon--Save ms-fontColor-themePrimary"
+            *ngIf="!isRoot"
+            matTooltip="Save Here"
+            matTooltipClass="icon-tooltip"
+            (click)="saveWordHere()"
+          ></i>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-card-content *ngIf="!isLoading && !isSaving">
+      <mat-grid-list cols="3" rowHeight="100px" fxFlex>
+        <mat-grid-tile *ngFor="let repo of folderDocuments" class=file-or-folder>
+            <div
+              fxLayout="column"
+              fxLayoutAlign="space-between center"
+              (click)="navigate(repo)"
+              (contextmenu)="openContextMenu($event, repo); false"
+              >
+              <i class="file-or-folder-icon ms-Icon larger pointer ms-Icon--FabricFolderFill ms-fontColor-themePrimary"
+                *ngIf="repo.isFolder"
+                matTooltip="{{repo.name}}"
+                matTooltipClass="icon-tooltip"
+              ></i>
+
+              <i class="file-or-folder-icon ms-Icon larger pointer ms-Icon--WordDocument ms-fontColor-themePrimary"
+                *ngIf="!repo.isFolder"
+                matTooltip="{{repo.name}}"
+                matTooltipClass="icon-tooltip"
+              ></i>
+              <span class="small">{{repo.name | truncate:[12, '...']}}</span>
+            </div>
+          </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+
+    <mat-card-content *ngIf="!isLoading && isSaving">
+      <div class="div-center">
+        <ui-spinner size="large" label="Saving..."></ui-spinner>
+      </div>
+    </mat-card-content>
+
+    <mat-card-content *ngIf="isLoading">
+      <div class="div-center">
+          <ui-spinner size="large"></ui-spinner>
+      </div>
+    </mat-card-content>
+
+    <button mat-button [matMenuTriggerFor]="menu" id="menuBtn" style="display:none;"></button>
+    <mat-menu #menu="matMenu"
+      [overlapTrigger]="false"
+      (close)="onMenuClosed()">
+      <button mat-menu-item (click)="openFolder()">
+        <mat-icon>folder_open</mat-icon>
+        <span>Open</span>
+      </button>
+      <button mat-menu-item (click)="saveWordHere()">
+        <mat-icon>save</mat-icon>
+        <span>Save Here</span>
+      </button>
+    </mat-menu>
+  </mat-card>
+</div>

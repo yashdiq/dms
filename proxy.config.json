@@ -1,0 +1,8 @@
+{
+	"/teknoerp/*" : {
+		"target" : "http://103.43.47.65:8080",
+		"secure" : false,
+		"logLevel" : "debug",
+		"changeOrigin": true
+	}
+}

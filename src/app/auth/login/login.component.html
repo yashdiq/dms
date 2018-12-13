@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="login-form alternate-theme">
+    <div class="img-center">
+      <img src="../../../assets/logo-filled.png" title="Quantum" alt="Quantum" width="100px" />
+    </div>
+    <mat-form-field>
+      <input matInput placeholder="Username" [formControl]="username">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" [formControl]="password" (keyup.enter)="goLogin()">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" (click)="goLogin()" [disabled]="disabled">Login</button>
+  </div>
+</div>
