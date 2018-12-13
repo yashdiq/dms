@@ -15,7 +15,7 @@
           "options": {
             "outputPath": "dist/dms",
             "index": "index.html",
-            "main": "main.ts",
+            "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
